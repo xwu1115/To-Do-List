@@ -102,3 +102,15 @@ class ViewController: UIViewController, SaveEventProtocol {
         eventsManager?.add(event: event)
     }
 }
+
+class ViewModel: NSObject {
+    var content: String {
+        return event.content
+    }
+    
+    private let event: Event
+    
+    init(event: Event) {
+        self.event = event
+    }
+}

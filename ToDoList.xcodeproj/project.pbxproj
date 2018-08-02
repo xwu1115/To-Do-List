@@ -20,7 +20,6 @@
 		003A824F20FDAA3D00855861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 003A824E20FDAA3D00855861 /* Assets.xcassets */; };
 		003A825220FDAA3D00855861 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 003A825020FDAA3D00855861 /* LaunchScreen.storyboard */; };
 		003A826820FDAAC100855861 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003A826720FDAAC100855861 /* EventManager.swift */; };
-		003A827020FDC61F00855861 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003A826F20FDC61F00855861 /* ViewModel.swift */; };
 		003A82722100611C00855861 /* SetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003A82712100611C00855861 /* SetUpViewController.swift */; };
 		003A827421006FCD00855861 /* EventViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003A827321006FCD00855861 /* EventViewCell.swift */; };
 		3A67AFC1049AC3A5F3E75C9A /* Pods_ToDoList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F05D6EC97CB270881416ADF /* Pods_ToDoList.framework */; };
@@ -57,7 +56,6 @@
 		003A826720FDAAC100855861 /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		003A826920FDC19000855861 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		003A826B20FDC46E00855861 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		003A826F20FDC61F00855861 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		003A82712100611C00855861 /* SetUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpViewController.swift; sourceTree = "<group>"; };
 		003A827321006FCD00855861 /* EventViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewCell.swift; sourceTree = "<group>"; };
 		4F05D6EC97CB270881416ADF /* Pods_ToDoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,15 +111,14 @@
 			children = (
 				003A824720FDAA3C00855861 /* AppDelegate.swift */,
 				003A824920FDAA3C00855861 /* ViewController.swift */,
-				003A826720FDAAC100855861 /* EventManager.swift */,
-				002886422112D777001D574B /* Event.swift */,
-				003A826F20FDC61F00855861 /* ViewModel.swift */,
-				003A827321006FCD00855861 /* EventViewCell.swift */,
-				0028860F210EA18A001D574B /* PersistentController.swift */,
-				00288608210EA0A1001D574B /* Model.xcdatamodeld */,
-				003A824B20FDAA3C00855861 /* Main.storyboard */,
 				003A82712100611C00855861 /* SetUpViewController.swift */,
 				002886402112B7C2001D574B /* CategoryPickerViewController.swift */,
+				003A827321006FCD00855861 /* EventViewCell.swift */,
+				0028860F210EA18A001D574B /* PersistentController.swift */,
+				003A826720FDAAC100855861 /* EventManager.swift */,
+				002886422112D777001D574B /* Event.swift */,
+				00288608210EA0A1001D574B /* Model.xcdatamodeld */,
+				003A824B20FDAA3C00855861 /* Main.storyboard */,
 				003A824E20FDAA3D00855861 /* Assets.xcassets */,
 				003A825020FDAA3D00855861 /* LaunchScreen.storyboard */,
 				0028860B210EA150001D574B /* EventEntity+CoreDataClass.swift */,
@@ -360,7 +357,6 @@
 				002886412112B7C2001D574B /* CategoryPickerViewController.swift in Sources */,
 				003A824A20FDAA3C00855861 /* ViewController.swift in Sources */,
 				003A826820FDAAC100855861 /* EventManager.swift in Sources */,
-				003A827020FDC61F00855861 /* ViewModel.swift in Sources */,
 				002886432112D777001D574B /* Event.swift in Sources */,
 				0028860A210EA0A1001D574B /* Model.xcdatamodeld in Sources */,
 				003A824820FDAA3C00855861 /* AppDelegate.swift in Sources */,
