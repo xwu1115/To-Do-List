@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/shawnwu/Documents/dev/To-Do-List/ToDoList/EventEntity+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/shawnwu/Documents/dev/To-Do-List/ToDoList/EventEntity+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:ToDoList.xcodeproj">
    </FileRef>
    <FileRef

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		001ED5E5210AB79F00A8401F /* EventManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001ED5E4210AB79F00A8401F /* EventManagerTests.swift */; };
+		0028860A210EA0A1001D574B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 00288608210EA0A1001D574B /* Model.xcdatamodeld */; };
+		0028860D210EA150001D574B /* EventEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028860B210EA150001D574B /* EventEntity+CoreDataClass.swift */; };
+		0028860E210EA150001D574B /* EventEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028860C210EA150001D574B /* EventEntity+CoreDataProperties.swift */; };
+		00288610210EA18A001D574B /* PersistentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028860F210EA18A001D574B /* PersistentController.swift */; };
 		003A824820FDAA3C00855861 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003A824720FDAA3C00855861 /* AppDelegate.swift */; };
 		003A824A20FDAA3C00855861 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003A824920FDAA3C00855861 /* ViewController.swift */; };
 		003A824D20FDAA3C00855861 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 003A824B20FDAA3C00855861 /* Main.storyboard */; };
@@ -33,6 +37,10 @@
 
 /* Begin PBXFileReference section */
 		001ED5E4210AB79F00A8401F /* EventManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagerTests.swift; sourceTree = "<group>"; };
+		00288609210EA0A1001D574B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		0028860B210EA150001D574B /* EventEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EventEntity+CoreDataClass.swift"; path = "/Users/shawnwu/Documents/dev/To-Do-List/ToDoList/EventEntity+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		0028860C210EA150001D574B /* EventEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EventEntity+CoreDataProperties.swift"; path = "/Users/shawnwu/Documents/dev/To-Do-List/ToDoList/EventEntity+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		0028860F210EA18A001D574B /* PersistentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentController.swift; sourceTree = "<group>"; };
 		003A824420FDAA3C00855861 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		003A824720FDAA3C00855861 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		003A824920FDAA3C00855861 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,10 +112,14 @@
 				003A826720FDAAC100855861 /* EventManager.swift */,
 				003A826F20FDC61F00855861 /* ViewModel.swift */,
 				003A827321006FCD00855861 /* EventViewCell.swift */,
+				0028860F210EA18A001D574B /* PersistentController.swift */,
+				00288608210EA0A1001D574B /* Model.xcdatamodeld */,
 				003A824B20FDAA3C00855861 /* Main.storyboard */,
 				003A82712100611C00855861 /* SetUpViewController.swift */,
 				003A824E20FDAA3D00855861 /* Assets.xcassets */,
 				003A825020FDAA3D00855861 /* LaunchScreen.storyboard */,
+				0028860B210EA150001D574B /* EventEntity+CoreDataClass.swift */,
+				0028860C210EA150001D574B /* EventEntity+CoreDataProperties.swift */,
 				003A825320FDAA3D00855861 /* Info.plist */,
 			);
 			path = ToDoList;
@@ -342,7 +354,11 @@
 				003A824A20FDAA3C00855861 /* ViewController.swift in Sources */,
 				003A826820FDAAC100855861 /* EventManager.swift in Sources */,
 				003A827020FDC61F00855861 /* ViewModel.swift in Sources */,
+				0028860A210EA0A1001D574B /* Model.xcdatamodeld in Sources */,
 				003A824820FDAA3C00855861 /* AppDelegate.swift in Sources */,
+				0028860E210EA150001D574B /* EventEntity+CoreDataProperties.swift in Sources */,
+				00288610210EA18A001D574B /* PersistentController.swift in Sources */,
+				0028860D210EA150001D574B /* EventEntity+CoreDataClass.swift in Sources */,
 				003A82722100611C00855861 /* SetUpViewController.swift in Sources */,
 				003A827421006FCD00855861 /* EventViewCell.swift in Sources */,
 			);
@@ -615,6 +631,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		00288608210EA0A1001D574B /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				00288609210EA0A1001D574B /* Model.xcdatamodel */,
+			);
+			currentVersion = 00288609210EA0A1001D574B /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 003A823C20FDAA3C00855861 /* Project object */;
 }

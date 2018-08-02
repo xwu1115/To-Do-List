@@ -27,6 +27,7 @@ class ViewController: UIViewController, SaveEventProtocol {
         restoreData()
         setUpTableView()
         setUpBackgroundTask()
+        setUpNotification()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,10 +50,24 @@ class ViewController: UIViewController, SaveEventProtocol {
         }).disposed(by: disposeBag)
     }
     
+    private func setUpNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillTerminate), name: NSNotification.Name(rawValue: "appWillTerminate"), object: nil)
+    }
+    
+    @objc private func appWillTerminate() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.eventsManager?.allEvents.value.forEach {
+            appDelegate.persistentController?.createOrUpdate(event: $0)
+        }
+    }
+    
     private func restoreData() {
-        eventsManager?.add(event: Event(title: "test1", content: "hello world", time: Date(timeIntervalSinceNow: 20)))
-        eventsManager?.add(event: Event(title: "test2", content: "hello world", time: Date(timeIntervalSinceNow: 10)))
-        eventsManager?.add(event: Event(title: "test3", content: "hello world", time: Date(timeIntervalSinceNow: 15)))
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if let events = appDelegate.persistentController?.restore() {
+            events.forEach {
+                eventsManager?.add(event: $0)
+            }
+        }
     }
     
     private func setUpTableView() {

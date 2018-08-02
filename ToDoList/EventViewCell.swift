@@ -14,7 +14,7 @@ class EventViewCell: UITableViewCell {
     @IBOutlet weak var icon: UIImageView!
     
     func configure(item: Event) {
-        title?.text = item.title
+        title?.text = item.content
         let df = DateFormatter()
         df.dateFormat = "MM/dd hh:mm:ss"
         let time = df.string(from: item.time)

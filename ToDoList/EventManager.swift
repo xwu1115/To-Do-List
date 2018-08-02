@@ -43,18 +43,20 @@ enum EventCategory: Int {
 }
 
 class Event: NSObject {
-    var state: EventState = .waiting
+    var state: EventState
     var title: String
     var content: String
     var time = Date()
-    let id: UUID = UUID()
+    let id: UUID
     let category: EventCategory
     
-    init(title: String, content: String, time: Date, category: EventCategory = .other) {
+    init(title: String, content: String, time: Date, category: EventCategory = .other, id: UUID = UUID(), state: EventState = .waiting) {
         self.title = title
         self.content = content
         self.time = time
         self.category = category
+        self.id = id
+        self.state = state
     }
 }
 
