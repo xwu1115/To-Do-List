@@ -47,6 +47,25 @@ class EventManager: NSObject {
         }
     }
     
+    func delete(event: Event) {
+        queue.async { [weak self] in
+            guard let `self` = self else { return }
+            
+            let pos = self.checkPos(event: event, arr: self.ongoingEvents.value)
+            if pos != -1 {
+                self.ongoingEvents.value.remove(at: pos)
+                print("delete event: \(event.id), state: \(event.state) at position: \(pos)")
+                if pos == 0 {
+                    self.interrupt()
+                }
+            } else {
+                let newPos = self.checkPos(event: event, arr: self.triggeredEvents.value)
+                self.triggeredEvents.value.remove(at: newPos)
+                print("delete event: \(event.id), state: \(event.state) at position: \(newPos)")
+            }
+        }
+    }
+    
     func finish(event: Event, passDue: Bool = false) {
         queue.async { [weak self] in
             guard let `self` = self else { return }
@@ -62,6 +81,15 @@ class EventManager: NSObject {
                 }
             }
         }
+    }
+    
+    private func checkPos(event: Event, arr: [Event]) -> Int {
+        for i in 0..<arr.count {
+            if arr[i].id == event.id {
+                return i
+            }
+        }
+        return -1
     }
     
     private func addToOngoingEvents(event: Event) {

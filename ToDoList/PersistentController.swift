@@ -47,6 +47,13 @@ class PersistentController: NSObject {
         try? context.save()
     }
     
+    func delete(event: Event) {
+        if let eventEntity = exist(event: event) {
+            context.delete(eventEntity)
+            try? context.save()
+        }
+    }
+    
     private func update(eventEntity: EventEntity, with event: Event) {
         eventEntity.category = Int16(event.category.rawValue)
         eventEntity.state = Int16(event.state.rawValue)

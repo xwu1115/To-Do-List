@@ -85,6 +85,14 @@ class ViewController: UIViewController, SaveEventProtocol {
                 self.eventsManager?.finish(event: event)
             }
         }.disposed(by: disposeBag)
+        
+        tableView.rx.itemDeleted.subscribe {
+            if let idx = $0.element?.row, let events = self.eventsManager?.allEvents.value {
+                self.eventsManager?.delete(event: events[idx])
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.persistentController?.delete(event: events[idx])
+            }
+        }.disposed(by: disposeBag)
     }
     
     private func setUpBackgroundTask() {
