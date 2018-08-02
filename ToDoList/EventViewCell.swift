@@ -35,4 +35,10 @@ class EventViewCell: UITableViewCell {
             break
         }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        icon.image = nil
+    }
 }
