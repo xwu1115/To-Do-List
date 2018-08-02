@@ -41,7 +41,7 @@ class ViewController: UIViewController, SaveEventProtocol {
         eventsManager?.trigger.asObserver().subscribe(onNext: { event in
             let center = UNUserNotificationCenter.current()
             let content = UNMutableNotificationContent()
-            content.title = event.title
+            content.title = event.category.stringValue
             content.body = event.content
             let identifier = "ToDoList"
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
@@ -74,7 +74,7 @@ class ViewController: UIViewController, SaveEventProtocol {
         tableView.delegate = nil
         tableView.dataSource = nil
         tableView.tableFooterView = UIView()
-        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = 60
         
         eventsManager?.allEvents.asObservable().bind(to: tableView.rx.items(cellIdentifier: "event", cellType: EventViewCell.self)) { row, item, cell in
             cell.configure(item: item)

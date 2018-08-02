@@ -19,8 +19,7 @@ class PersistentController: NSObject {
         let request: NSFetchRequest<EventEntity> = NSFetchRequest(entityName: "EventEntity")
         if let events = try? context.fetch(request) {
             return events.map {
-                return Event(title: "",
-                             content: $0.content ?? "",
+                return Event(content: $0.content ?? "",
                              time: $0.time! as Date,
                              category: EventCategory(rawValue: Int($0.category))!,
                              id: $0.id ?? UUID(),

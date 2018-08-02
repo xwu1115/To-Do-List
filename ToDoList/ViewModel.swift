@@ -10,10 +10,6 @@ import RxSwift
 import RxCocoa
 
 class ViewModel: NSObject {
-    var title: String {
-        return event.title
-    }
-    
     var content: String {
         return event.content
     }

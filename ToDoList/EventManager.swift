@@ -10,56 +10,6 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-enum EventState: Int {
-    case complete
-    case overdue
-    case waiting
-}
-
-enum EventCategory: Int {
-    case lifeStyle
-    case fitness
-    case money
-    case events
-    case study
-    case other
-    
-    var stringValue: String {
-        switch self {
-        case .lifeStyle:
-            return "life style"
-        case .events:
-            return "events"
-        case .money:
-            return "money"
-        case .study:
-            return "study"
-        case .fitness:
-            return "fitness"
-        case .other:
-            return "other"
-        }
-    }
-}
-
-class Event: NSObject {
-    var state: EventState
-    var title: String
-    var content: String
-    var time = Date()
-    let id: UUID
-    let category: EventCategory
-    
-    init(title: String, content: String, time: Date, category: EventCategory = .other, id: UUID = UUID(), state: EventState = .waiting) {
-        self.title = title
-        self.content = content
-        self.time = time
-        self.category = category
-        self.id = id
-        self.state = state
-    }
-}
-
 class EventManager: NSObject {
     private let queue = DispatchQueue(label: "event manager queue")
     private var triggeredEvents: Variable<[Event]> = Variable<[Event]>([])
