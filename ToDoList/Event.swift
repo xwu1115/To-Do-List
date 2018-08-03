@@ -24,7 +24,7 @@ enum EventCategory: Int {
     var stringValue: String {
         switch self {
         case .lifeStyle:
-            return "life style"
+            return "lifestyle"
         case .grocery:
             return "grocery"
         case .money:

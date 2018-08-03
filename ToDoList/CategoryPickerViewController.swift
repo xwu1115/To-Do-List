@@ -43,7 +43,8 @@ class CategoryPickerTableViewModel {
         }.disposed(by: disposeBag)
         
         tableView.rx.itemSelected.subscribe { indexPath in
-            if let row = indexPath.element?.row {
+            if let indexPath = indexPath.element {
+                let row = indexPath.row
                 self.selected.value = self.dataSource.value[row]
             }
         }.disposed(by: disposeBag)

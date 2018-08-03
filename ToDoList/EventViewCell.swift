@@ -18,7 +18,7 @@ class EventViewCell: UITableViewCell {
         categoryIcon.image = UIImage(named: item.category.stringValue)
         title?.text = item.content
         let df = DateFormatter()
-        df.dateFormat = "MM/dd hh:mm:ss"
+        df.dateFormat = "MM/dd hh:mm"
         let time = df.string(from: item.time)
         self.time.text = time
         

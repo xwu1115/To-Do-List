@@ -25,14 +25,14 @@ class EventManagerTests: QuickSpec {
         }
         
         it("single") {
-            let e = Event(title: "test", content: "test", time: Date(timeIntervalSinceNow: 0.1))
+            let e = Event(content: "test", time: Date(timeIntervalSinceNow: 0.1))
             manager.add(event: e)
             expect(manager.allEvents.value.count).toEventually(equal(1), timeout: 0.5)
             expect(manager.allEvents.value[0].state).toEventually(equal(EventState.overdue), timeout: 1)
         }
         
         it("finish") {
-            let e = Event(title: "test", content: "test", time: Date(timeIntervalSinceNow: 2.0))
+            let e = Event(content: "test", time: Date(timeIntervalSinceNow: 2.0))
             manager.add(event: e)
             manager.finish(event: e)
             expect(manager.allEvents.value.count).toEventually(equal(1), timeout: 0.5)
@@ -40,8 +40,8 @@ class EventManagerTests: QuickSpec {
         }
         
         it("order") {
-            let e1 = Event(title: "test", content: "test", time: Date(timeIntervalSinceNow: 0.1))
-            let e2 = Event(title: "test", content: "test", time: Date(timeIntervalSinceNow: 1.5))
+            let e1 = Event(content: "test", time: Date(timeIntervalSinceNow: 0.1))
+            let e2 = Event(content: "test", time: Date(timeIntervalSinceNow: 1.5))
             manager.add(event: e1)
             manager.add(event: e2)
             expect(manager.allEvents.value.count).toEventually(equal(2), timeout: 0.5)
@@ -50,9 +50,9 @@ class EventManagerTests: QuickSpec {
         }
         
         it("interrupt") {
-            let e1 = Event(title: "test", content: "test", time: Date(timeIntervalSinceNow: 0.1))
-            let e2 = Event(title: "test", content: "test", time: Date(timeIntervalSinceNow: 1.5))
-            let e3 = Event(title: "test", content: "test", time: Date(timeIntervalSinceNow: 1.3))
+            let e1 = Event(content: "test", time: Date(timeIntervalSinceNow: 0.1))
+            let e2 = Event(content: "test", time: Date(timeIntervalSinceNow: 1.5))
+            let e3 = Event(content: "test", time: Date(timeIntervalSinceNow: 1.3))
             manager.add(event: e2)
             manager.add(event: e1)
             manager.add(event: e3)
@@ -60,6 +60,32 @@ class EventManagerTests: QuickSpec {
             expect(manager.allEvents.value[0].state).toEventually(equal(EventState.overdue), timeout: 1)
             expect(manager.allEvents.value[1].state).toEventually(equal(EventState.waiting), timeout: 1.1)
             expect(manager.allEvents.value[2].state).toEventually(equal(EventState.waiting), timeout: 1.2)
+        }
+        
+        it("delete overdue events") {
+            let e1 = Event(content: "test", time: Date(timeIntervalSinceNow: 0.1))
+            let e2 = Event(content: "test", time: Date(timeIntervalSinceNow: 1.5))
+            let e3 = Event(content: "test", time: Date(timeIntervalSinceNow: 1.3))
+            manager.add(event: e2)
+            manager.add(event: e1)
+            manager.add(event: e3)
+            manager.delete(event: e3)
+            expect(manager.allEvents.value.count).toEventually(equal(2), timeout: 0.5)
+            expect(manager.allEvents.value[0].state).toEventually(equal(EventState.overdue), timeout: 1)
+            expect(manager.allEvents.value[1].state).toEventually(equal(EventState.waiting), timeout: 1.1)
+        }
+        
+        it("delete waiting events") {
+            let e1 = Event(content: "test", time: Date(timeIntervalSinceNow: 0.1))
+            let e2 = Event(content: "test", time: Date(timeIntervalSinceNow: 1.5))
+            let e3 = Event(content: "test", time: Date(timeIntervalSinceNow: 1.3))
+            manager.add(event: e2)
+            manager.add(event: e1)
+            manager.add(event: e3)
+            manager.delete(event: e1)
+            expect(manager.allEvents.value.count).toEventually(equal(2), timeout: 0.5)
+            expect(manager.allEvents.value[0].state).toEventually(equal(EventState.waiting), timeout: 1)
+            expect(manager.allEvents.value[1].state).toEventually(equal(EventState.waiting), timeout: 1.1)
         }
     }
 }

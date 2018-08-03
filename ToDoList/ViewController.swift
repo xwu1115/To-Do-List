@@ -81,7 +81,8 @@ class ViewController: UIViewController, SaveEventProtocol {
         }.disposed(by: disposeBag)
         
         tableView.rx.itemSelected.subscribe { indexPath in
-            if let row = indexPath.element?.row, let event = self.eventsManager?.allEvents.value[row] {
+            if let indexPath = indexPath.element, let event = self.eventsManager?.allEvents.value[indexPath.row] {
+                self.tableView.deselectRow(at: indexPath, animated: true)
                 self.eventsManager?.finish(event: event)
             }
         }.disposed(by: disposeBag)
