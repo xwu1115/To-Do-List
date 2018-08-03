@@ -39,5 +39,8 @@ class EventViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         icon.image = nil
+        categoryIcon.image = nil
+        title.textColor = UIColor.black
+        time.textColor = UIColor.black
     }
 }
